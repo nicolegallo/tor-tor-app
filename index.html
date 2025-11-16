@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Tori Time Tracker 2.0</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/x-icon" href="https://i.ibb.co/FBxRbk7/tori-tulip.jpg" />
+  <link rel="stylesheet" href="style.css" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<link rel="apple-touch-icon" href="https://i.ibb.co/FBxRbk7/tori-tulip.jpg">
+
+</head>
+<body>
+  <div class="app">
+    <header class="app-header">
+      <img
+        src="https://i.ibb.co/NtqRfCM/nictoria-hand.png"
+        alt="Nictoria hand held"
+        class="header-img"
+      />
+      <h1>Tori Time Tracker</h1>
+      <p class="tagline">Start, stop, and log every precious minute together 💗</p>
+    </header>
+
+    <main>
+      <!-- Status + Timer Card -->
+      <section class="card">
+        <h2>Current Tori Time</h2>
+
+        <div class="status-row">
+          <span class="status-label">Status:</span>
+          <span id="status-text" class="status-badge status-idle">No active Tori Time</span>
+        </div>
+
+        <div class="timer-display">
+          <div class="timer-label">Elapsed time</div>
+          <div id="elapsed-time" class="timer-value">00:00:00</div>
+        </div>
+
+        <form id="tori-form" class="form">
+          <label for="where-input">Where / what are you two doing? <span class="required">*</span></label>
+          <input
+            type="text"
+            id="where-input"
+            placeholder="Ex: Chelsea Cutler concert, Slumber, Errands + cuddles"
+            required
+          />
+
+          <label class="claim-label">Who is claiming the date? <span class="required">*</span></label>
+
+<div class="claim-row">
+  <label class="claim-option">
+    <input type="radio" name="claimed-by" value="Nicole" required />
+    <span>Nicole</span>
+  </label>
+
+  <label class="claim-option">
+    <input type="radio" name="claimed-by" value="Tori" required />
+    <span>Tori</span>
+  </label>
+
+  <label class="claim-option">
+    <input type="radio" name="claimed-by" value="Nictori" required />
+    <span>Nictori</span>
+  </label>
+</div>
+
+
+          <div class="buttons-row">
+            <button type="button" id="start-btn" class="btn primary">Start Tori Time</button>
+            <button type="button" id="stop-btn" class="btn secondary" disabled>Stop Tori Time</button>
+          </div>
+        </form>
+
+        <p class="hint">Tip: Start at the beginning of your date, stop when you say goodbye (or fall asleep together 🥹).</p>
+
+        <div id="message" class="message" aria-live="polite"></div>
+      </section>
+
+      <!-- Summary Card -->
+      <section class="card">
+        <h2>Summary</h2>
+        <div class="summary-row">
+          <span>Total logged Tori Time (from this app):</span>
+          <span id="total-time" class="summary-time">00:00:00</span>
+        </div>
+        <div class="summary-row">
+          <span>Number of logged dates:</span>
+          <span id="total-dates" class="summary-count">0</span>
+        </div>
+      </section>
+
+      <label class="toggle-edit">
+  <input type="checkbox" id="toggle-edit-mode" />
+  Enable Edit/Delete Mode
+</label>
+
+
+      <!-- Recent Entries Card -->
+      <section class="card">
+        <h2>Recent Tori Dates (local view)</h2>
+        <p class="small-text">
+          These entries are stored locally for quick reference. The official source of truth is still your
+          <strong>Data</strong> sheet in Google Sheets.
+        </p>
+        <ul id="entries-list" class="entries-list">
+          <!-- Entries injected by script.js -->
+        </ul>
+        <p id="no-entries" class="small-text muted">No dates logged yet. Your Nictorian Era awaits ✨</p>
+      </section>
+    </main>
+
+    <footer class="app-footer">
+      <p>Built with love by Nicole for Tori 💕</p>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+
+  <div class="sticky-bar">
+  <button type="button" id="start-btn-mobile" class="btn primary">Start</button>
+  <button type="button" id="stop-btn-mobile" class="btn secondary">Stop</button>
+</div>
+
+</body>
+</html>
